@@ -1,5 +1,5 @@
-const http = require("http"); //importam package-ul http, nativ a lui Node
-const app = require("./app"); //importam aplicatia
+const http = require("http"); //importer package http, nativ de Node.js
+const app = require("./app"); //importer  l'application
 
 const normalizePort = (val) => {
   const port = parseInt(val, 10);
@@ -13,7 +13,7 @@ const normalizePort = (val) => {
   return false;
 };
 
-//indicam aplicatiei express pe care port va functiona
+//indiquer a l'application sur quel port va fonctionner
 const port = normalizePort(process.env.PORT || "3000");
 app.set("port", port);
 
@@ -38,7 +38,7 @@ const errorHandler = (error) => {
   }
 };
 
-//creem serverul
+//creation du server
 const server = http.createServer(app);
 
 server.on("error", errorHandler);
@@ -48,5 +48,4 @@ server.on("listening", () => {
   console.log("Listening on http://localhost:" + bind);
 });
 
-//configuram serverul sa asculte, fie variabila care contine un port prestabilit fie un port aliatoriu
 server.listen(port);

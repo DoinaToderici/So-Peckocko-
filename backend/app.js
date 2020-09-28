@@ -14,7 +14,6 @@ const usersRoutes = require("./routes/users");
 
 //lancement express
 const app = express();
-
 //seter  middleware-le globale
 app.use(bodyParser.json());
 app.use(headers); //ajoutons des en-têtes à l'objet de réponse, afin que les origines (frontend et backend) puissent communiquer entre elles
