@@ -1,6 +1,8 @@
 const userSchema = require("../models/User");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const dotenv = require("dotenv");
+dotenv.config();
 
 exports.createUser = (req, res) => {
   const userObject = req.body;
@@ -43,7 +45,7 @@ exports.conectUser = (req, res) => {
 
           res.json({
             userId: response._id,
-            token: jwt.sign({ userId: response._id }, "SECRET_KEY", {
+            token: jwt.sign({ userId: response._id }, process.env.SECRET_KEY, {
               expiresIn: "24h",
             }),
           });
